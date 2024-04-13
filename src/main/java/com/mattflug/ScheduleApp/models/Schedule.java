@@ -12,48 +12,8 @@ public class Schedule {
     @Column(name = "week_id")
     private Integer id;
 
-    @Column(name = "date", nullable = false)
-    private LocalDateTime date;
-
-    public enum Monday {
-        OFFICE, HOME, FIELD, OOO
-    }
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "monday")
-    private Monday monday;
-
-    public enum Tuesday {
-        OFFICE, HOME, FIELD, OOO
-    }
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "tuesday")
-    private Tuesday tuesday;
-
-    public enum Wednesday {
-        OFFICE, HOME, FIELD, OOO
-    }
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "wednesday")
-    private Wednesday wednesday;
-
-    public enum Thursday {
-        OFFICE, HOME, FIELD, OOO
-    }
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "thursday")
-    private Thursday thursday;
-
-    public enum Friday {
-        OFFICE, HOME, FIELD, OOO
-    }
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "friday")
-    private Friday friday;
+//    @Column(name = "date", nullable = false)
+//    private LocalDateTime date;
 
     private String notes;
 
@@ -71,54 +31,6 @@ public class Schedule {
         this.id = id;
     }
 
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
-    public Monday getMonday() {
-        return monday;
-    }
-
-    public void setMonday(Monday monday) {
-        this.monday = monday;
-    }
-
-    public Tuesday getTuesday() {
-        return tuesday;
-    }
-
-    public void setTuesday(Tuesday tuesday) {
-        this.tuesday = tuesday;
-    }
-
-    public Wednesday getWednesday() {
-        return wednesday;
-    }
-
-    public void setWednesday(Wednesday wednesday) {
-        this.wednesday = wednesday;
-    }
-
-    public Thursday getThursday() {
-        return thursday;
-    }
-
-    public void setThursday(Thursday thursday) {
-        this.thursday = thursday;
-    }
-
-    public Friday getFriday() {
-        return friday;
-    }
-
-    public void setFriday(Friday friday) {
-        this.friday = friday;
-    }
-
     public String getNotes() {
         return notes;
     }
@@ -131,12 +43,6 @@ public class Schedule {
     public String toString() {
         return "Schedule{" +
                 "id=" + id +
-                ", date=" + date +
-                ", monday=" + monday +
-                ", tuesday=" + tuesday +
-                ", wednesday=" + wednesday +
-                ", thursday=" + thursday +
-                ", friday=" + friday +
                 ", notes='" + notes + '\'' +
                 '}';
     }
@@ -146,11 +52,11 @@ public class Schedule {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Schedule schedule = (Schedule) o;
-        return Objects.equals(id, schedule.id) && Objects.equals(date, schedule.date) && monday == schedule.monday && tuesday == schedule.tuesday && wednesday == schedule.wednesday && thursday == schedule.thursday && friday == schedule.friday && Objects.equals(notes, schedule.notes);
+        return Objects.equals(id, schedule.id) && Objects.equals(notes, schedule.notes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, monday, tuesday, wednesday, thursday, friday, notes);
+        return Objects.hash(id, notes);
     }
 }
